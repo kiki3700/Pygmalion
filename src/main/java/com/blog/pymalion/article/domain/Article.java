@@ -1,19 +1,18 @@
-package com.blog.pymalion.article;
+package com.blog.pymalion.article.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
-@Entity
+import java.util.UUID;
+
+@Getter
+@Setter
 public class Article {
+    private UUID id;
 
-    private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    @Id
-    public Long getId() {
-        return id;
-    }
+
+
+
 }
