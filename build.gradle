@@ -21,20 +21,22 @@ repositories {
 }
 
 dependencies {
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 //    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.0.1'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:3.0.1'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-//    runtimeOnly 'org.postgresql:postgresql'
+
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
     testImplementation 'org.springframework.security:spring-security-test'
-    // https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api
-    compileOnly 'jakarta.servlet:jakarta.servlet-api:5.0.0'
 
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+    compileOnly 'com.h2database:h2:2.1.214'
 }
 
 
