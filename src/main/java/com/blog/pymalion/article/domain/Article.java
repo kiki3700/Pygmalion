@@ -1,20 +1,24 @@
 package com.blog.pymalion.article.domain;
 
 import com.blog.pymalion.member.domain.Member;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
-import java.util.UUID;
+import java.util.*;
 
+@Entity
 @Getter
 @Setter
 public class Article {
+    @Id
     private UUID id;
 
-    private Member writer;
+    private UUID memberId;
 
-    private Category tag;
+    @OneToMany
+    private Set<Category> tag = new HashSet<>();
 
     private Timestamp createTime;
 
@@ -24,7 +28,8 @@ public class Article {
 
     private String mainText;
 
-    private Comment comment;
+    @OneToMany
+    private List<Comment> comment = new ArrayList<>();
 
 
 }
