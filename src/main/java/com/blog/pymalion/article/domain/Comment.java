@@ -1,10 +1,7 @@
 package com.blog.pymalion.article.domain;
 
 import com.blog.pymalion.member.domain.Member;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +13,7 @@ import java.util.UUID;
 @Setter
 public class Comment {
 
-    @Id
+    @Id @GeneratedValue
     private UUID commentId;
 
     private UUID memberId;

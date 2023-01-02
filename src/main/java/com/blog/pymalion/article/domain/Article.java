@@ -12,10 +12,12 @@ import java.util.*;
 @Getter
 @Setter
 public class Article {
-    @Id
+    @Id @GeneratedValue
     private UUID id;
 
-    private UUID memberId;
+    @ManyToOne
+    @JoinColumn(name = "MEMBER_ID")
+    private Member member;
 
     @OneToMany
     private Set<Category> tag = new HashSet<>();
