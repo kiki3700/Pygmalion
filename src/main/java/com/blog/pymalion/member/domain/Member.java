@@ -18,7 +18,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Member {
+
     @Id @GeneratedValue
+    @Column(name = "MEMBER_ID")
     private UUID id;
     private String name;
     private String password;
