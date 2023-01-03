@@ -16,6 +16,9 @@ public class Comment {
     @Id @GeneratedValue
     private UUID commentId;
 
+    @ManyToOne
+    @JoinColumn(name = "ARTICLE_ID")
+    private Article article;
     private UUID memberId;
     private String text;
 

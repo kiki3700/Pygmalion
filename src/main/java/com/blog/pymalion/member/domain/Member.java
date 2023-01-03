@@ -19,11 +19,18 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Member {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "MEMBER_ID")
     private UUID id;
     private String name;
     private String password;
 
+    static Member of(String name, String password) {
+        return new Member(null, name, password);
+    }
 
+    public void changePassword(String newPassword){
+        this.password = newPassword;
+    }
 }

@@ -19,9 +19,6 @@ public class Article {
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @OneToMany
-    private Set<Category> tag = new HashSet<>();
-
     private Timestamp createTime;
 
     private Timestamp lastModifiedTime;
@@ -30,7 +27,7 @@ public class Article {
 
     private String mainText;
 
-    @OneToMany
+    @OneToMany(mappedBy = "article")
     private List<Comment> comment = new ArrayList<>();
 
 
