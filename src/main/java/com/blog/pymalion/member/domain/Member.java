@@ -1,6 +1,7 @@
 package com.blog.pymalion.member.domain;
 
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,14 +24,23 @@ public class Member {
     @GeneratedValue
     @Column(name = "MEMBER_ID")
     private UUID id;
-    private String name;
+    private String email;
+    private String nickName;
     private String password;
 
-    static Member of(String name, String password) {
-        return new Member(null, name, password);
+    @Nullable
+    private Authority authority;
+
+    private MemberStatus memberStatus;
+    static Member of(String email, String nickName, String password,MemberStatus memberStatus) {
+        return new Member(null,email, nickName, password, null, memberStatus);
     }
 
     public void changePassword(String newPassword){
         this.password = newPassword;
+    }
+
+    public void changeMemberStatus(MemberStatus memberStatus){
+        this.memberStatus = memberStatus;
     }
 }
