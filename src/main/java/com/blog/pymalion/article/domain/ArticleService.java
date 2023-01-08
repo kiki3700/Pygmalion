@@ -16,4 +16,15 @@ public class ArticleService {
         articleRepository.save(newArticle);
         return newArticle;
     }
+
+    public Article editMainText(UUID articleId, String newMainText){
+        Article article = articleRepository.findById(articleId).orElseThrow();
+        article.editMainText(newMainText);
+        articleRepository.save(article);
+        return article;
+    }
+
+    public void removeArticle(UUID articleId){
+        articleRepository.deleteById(articleId);
+    }
 }

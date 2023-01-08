@@ -1,12 +1,10 @@
 package com.blog.pymalion.article.domain;
 
-import com.blog.pymalion.member.domain.Member;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -39,5 +37,10 @@ public class Article {
 
     public static Article of_new_article(UUID memberId, String title, String mainText){
         return new Article(null, memberId, null, null, title, mainText, null);
+    }
+
+    public Article editMainText(String newMainText){
+        this.mainText = newMainText;
+        return this;
     }
 }
