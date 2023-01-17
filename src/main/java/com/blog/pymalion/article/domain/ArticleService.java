@@ -17,14 +17,14 @@ public class ArticleService {
         return newArticle;
     }
 
-    public Article editMainText(UUID articleId, String newMainText){
+    public Article editMainText(UUID articleId, String newMainText) {
         Article article = articleRepository.findById(articleId).orElseThrow();
         article.editMainText(newMainText);
         articleRepository.save(article);
         return article;
     }
 
-    public void removeArticle(UUID articleId){
+    public void removeArticle(UUID articleId) {
         articleRepository.deleteById(articleId);
     }
 }

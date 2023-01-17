@@ -17,7 +17,8 @@ import java.util.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Article {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private UUID id;
 
     private UUID member_id;
@@ -32,14 +33,11 @@ public class Article {
 
     private String mainText;
 
-    @OneToMany(mappedBy = "article")
-    private List<Comment> comment = new ArrayList<>();
-
-    public static Article of_new_article(UUID memberId, String title, String mainText){
-        return new Article(null, memberId, null, null, title, mainText, null);
+    public static Article of_new_article(UUID memberId, String title, String mainText) {
+        return new Article(null, memberId, null, null, title, mainText);
     }
 
-    public Article editMainText(String newMainText){
+    public Article editMainText(String newMainText) {
         this.mainText = newMainText;
         return this;
     }

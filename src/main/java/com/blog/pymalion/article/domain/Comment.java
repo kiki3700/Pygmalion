@@ -13,7 +13,8 @@ import java.util.UUID;
 @Setter
 public class Comment {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private UUID commentId;
 
     @ManyToOne
