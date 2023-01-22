@@ -11,8 +11,8 @@ public class ArticleService {
 
     final ArticleRepository articleRepository;
 
-    public Article RegisterArticle(UUID memberID, String title, String mainText) {
-        Article newArticle = Article.of_new_article(memberID, title, mainText);
+    public Article RegisterArticle(UUID memberID, String title, Category category, String mainText) {
+        Article newArticle = Article.of_new_article(memberID, title, category, mainText);
         articleRepository.save(newArticle);
         return newArticle;
     }

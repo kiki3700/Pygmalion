@@ -18,6 +18,7 @@ import java.util.*;
 @NoArgsConstructor
 public class Article {
     @Id
+    @Column(name = "ARTICLE_ID")
     @GeneratedValue
     private UUID id;
 
@@ -31,10 +32,13 @@ public class Article {
 
     private String title;
 
+    @Embedded
+    private Category category;
+
     private String mainText;
 
-    public static Article of_new_article(UUID memberId, String title, String mainText) {
-        return new Article(null, memberId, null, null, title, mainText);
+    public static Article of_new_article(UUID memberId, String title, Category category, String mainText) {
+        return new Article(null, memberId, null, null, title, category, mainText);
     }
 
     public Article editMainText(String newMainText) {
