@@ -28,19 +28,21 @@ public class Member {
     private String nickName;
     private String password;
 
+
     @Nullable
     private Authority authority;
 
     private MemberStatus memberStatus;
-    static Member of(String email, String nickName, String password,MemberStatus memberStatus) {
-        return new Member(null,email, nickName, password, null, memberStatus);
+
+    static Member of(String email, String nickName, String password, MemberStatus memberStatus) {
+        return new Member(null, email, nickName, password, null, memberStatus);
     }
 
-    public void changePassword(String newPassword){
+    public void changePassword(String newPassword) {
         this.password = newPassword;
     }
 
-    public void changeMemberStatus(MemberStatus memberStatus){
+    public void changeMemberStatus(MemberStatus memberStatus) {
         this.memberStatus = memberStatus;
     }
 }
