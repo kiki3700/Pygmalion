@@ -26,8 +26,8 @@ public class Member {
     private UUID id;
     private String email;
     private String nickName;
-    private String password;
 
+    private String password;
 
     @Nullable
     private Authority authority;

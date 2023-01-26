@@ -19,13 +19,13 @@ public class MemberService {
         return memberRepository.save(member);
     }
 
-    public Member changeStatus(UUID member_id, MemberStatus newMemberStatus) throws NotRegisterException {
-        Member member = memberRepository.findById(member_id).orElseThrow(NotRegisterException::new);
+    public Member changeStatus(UUID memberId, MemberStatus newMemberStatus) throws NotRegisterException {
+        Member member = memberRepository.findById(memberId).orElseThrow(NotRegisterException::new);
         member.changeMemberStatus(newMemberStatus);
         return memberRepository.save(member);
     }
 
-    public Member login(String email, String password) throws NotRegisterException, WrongPasswordException {
+    public Member signIn(String email, String password) throws NotRegisterException, WrongPasswordException {
         Member member = memberRepository.findMemberByEmail(email);
         if (member == null) {
             throw new NotRegisterException();
