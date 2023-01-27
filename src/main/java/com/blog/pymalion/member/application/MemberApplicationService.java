@@ -29,4 +29,9 @@ public class MemberApplicationService {
         return MemberAccount.of(member);
     }
 
+    @Transactional
+    public MemberAccount changeAuthority(UUID memberId, Authority authority) throws NotRegisterException {
+        Member member = memberService.changeAuthority(memberId, authority);
+        return MemberAccount.of(member);
+    }
 }

@@ -45,4 +45,8 @@ public class Member {
     public void changeMemberStatus(MemberStatus memberStatus) {
         this.memberStatus = memberStatus;
     }
+
+    public void changeMemberAuthority(Authority authority) {
+        this.authority = authority;
+    }
 }

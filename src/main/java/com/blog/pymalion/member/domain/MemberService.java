@@ -36,5 +36,11 @@ public class MemberService {
         return member;
     }
 
+    public Member changeAuthority(UUID memberId, Authority authority) throws NotRegisterException {
+        Member member = memberRepository.findById(memberId).orElseThrow(NotRegisterException::new);
+        member.changeMemberAuthority(authority);
+        return memberRepository.save(member);
+
+    }
 
 }
