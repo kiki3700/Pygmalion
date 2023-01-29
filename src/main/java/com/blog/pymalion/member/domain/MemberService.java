@@ -30,7 +30,7 @@ public class MemberService {
         if (member == null) {
             throw new NotRegisterException();
         }
-        if (!member.getPassword().equals(password)) {
+        if (!member.isRightPassword(password)) {
             throw new WrongPasswordException();
         }
         return member;

@@ -2,10 +2,7 @@ package com.blog.pymalion.member.domain;
 
 
 import jakarta.annotation.Nullable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +24,8 @@ public class Member {
     private String email;
     private String nickName;
 
-    private String password;
+    @Embedded
+    private Password password;
 
     @Nullable
     private Authority authority;
@@ -35,11 +33,15 @@ public class Member {
     private MemberStatus memberStatus;
 
     static Member of(String email, String nickName, String password, MemberStatus memberStatus) {
-        return new Member(null, email, nickName, password, null, memberStatus);
+        return new Member(null, email, nickName, Password.of(password), null, memberStatus);
     }
 
     public void changePassword(String newPassword) {
-        this.password = newPassword;
+        this.password = Password.of(newPassword);
+    }
+
+    public boolean isRightPassword(String password) {
+        return this.password.equals(Password.of(password));
     }
 
     public void changeMemberStatus(MemberStatus memberStatus) {
