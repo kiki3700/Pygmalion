@@ -24,6 +24,11 @@ public class ArticleService {
         return article;
     }
 
+    public Article likeArticle(Article article) {
+        // TODO
+    }
+
+
     public void removeArticle(UUID articleId) {
         articleRepository.deleteById(articleId);
     }

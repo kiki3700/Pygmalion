@@ -52,6 +52,10 @@ public class Article {
         return this;
     }
 
+    public void add_like() {
+        this.like += 1;
+    }
+
     //TODO remove comments
     public Article editMainText(String newMainText) {
         this.mainText = newMainText;
