@@ -18,7 +18,7 @@ public class MemberApplicationService {
     private final MemberService memberService;
 
     @Transactional
-    public MemberAccount signUp(String email, String nickName, String password, Authority authority) {
+    public MemberAccount signUp(String email, String nickName, String password) {
         Member newMember = memberService.sighUp(email, nickName, password);
         return MemberAccount.of(newMember);
     }
